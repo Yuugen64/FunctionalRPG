@@ -74,6 +74,25 @@ No prerequisites.
 - [001-0.0.1]:: INITIAL COMMIT >> Updated README and added core cpp file.
 - [002-0.0.2]:: Code Addition >> Added the ability to get players name and select a class. Will expand validation next time.
 
+4.4.21
+- Created new branch.
+- Learned to compile C++ on Mac.
+- Ran into an issue with the following error:
+
+* warning: unable to access '/Users/yuugen64/.config/git/ignore': Permission denied
+
+```sh
+1. In Terminal cd to the User director with cd ~.
+2. Change the directory permissions with sudo chmod 755 .config
+3. Enter your login password.
+```
+--> Solved by MeltingDog via StackOverflow.
+
+As far as I can tell, this issue is due to some kind of conflict where the root account on my Mac (i.e. my administrator account since I own the computer) sets certain permissions as it goes along. Meaning, that when I try to manipulate my git repository locally on a different branch, the new branch somehow lacks the correct permissions to do so? Leaving this fix here for the future.
+
+(For context, this occured AFTER I successfully cloned the git repo to my desktop. Opened the project in VS Code, and compiled the .cpp file into an executable for Mac using clang++. When trying to execute < git add . >, the error came up.
+
+- [003-9.9.3]:: NEW branch - MacFunctionalRPG >> Cloned the project on my Mac, and thus created a new branch to differentiate that point in time
 
 
 ### Main Branch:
