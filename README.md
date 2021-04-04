@@ -72,6 +72,7 @@ No prerequisites.
 4.3.21
 - Created the repo.
 - [001-0.0.1]:: INITIAL COMMIT >> Updated README and added core cpp file.
+- [002-0.0.2]:: Code Addition >> Added the ability to get players name and select a class. Will expand validation next time.
 
 
 
