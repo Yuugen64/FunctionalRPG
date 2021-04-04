@@ -79,8 +79,11 @@ No prerequisites.
 - Learned to compile C++ on Mac.
 - Ran into an issue with the following error:
 
-* warning: unable to access '/Users/yuugen64/.config/git/ignore': Permission denied
+```sh
+warning: unable to access '/Users/yuugen64/.config/git/ignore': Permission denied
+```
 
+SOLUTION:
 ```sh
 1. In Terminal cd to the User director with cd ~.
 2. Change the directory permissions with sudo chmod 755 .config
