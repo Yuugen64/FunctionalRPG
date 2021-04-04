@@ -8,7 +8,7 @@ A small expansion on my basic 'rpg' style c++ practice, now using multiple funct
     <img src="003_C++_Sprite.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">C++ Factorial (Loop Demo)</h3>
+  <h3 align="center">C++ RPG with Functions</h3>
   
   <br />
   </p>
@@ -71,6 +71,7 @@ No prerequisites.
 
 4.3.21
 - Created the repo.
+- [001-0.0.1]:: INITIAL COMMIT >> Updated README and added core cpp file.
 
 
 
