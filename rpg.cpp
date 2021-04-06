@@ -31,11 +31,12 @@ int main()
     int playerClassValue = getPlayerClass();
     string playerClassName;
     int infoFlag = 0;
+    int selectionFlag = 1;
 
     //Will probably need to have separate flags for this logic process, whiteboard it out.
     while(infoFlag == 0)
         {
-            if (infoFlag == 0)
+            if (selectionFlag == 1)
             {
                 cout << "So " << playerName << ", you've chosen to play a ";
                 switch (playerClassValue)
@@ -58,7 +59,29 @@ int main()
                 cout << endl;
                 cout << "Is this information correct?" << endl;
                 cout << "[ 1 - YES | 0 - NO ]" << endl;
-                cin >> infoFlag;
+                cin >> selectionFlag;
+            }
+            else
+            {
+                playerName = getPlayerName();
+                playerClassValue = getPlayerClass();
+            }
+
+            if (selectionFlag == 1)
+            {
+                cout << "Are you sure you are ok with this information " << playerName << "?" << endl;
+                cout << "[ 1 - YES | 0 - NO ]" << endl;
+                cin >> selectionFlag;
+
+                if(selectionFlag == 1)
+                {
+                    selectionFlag = 0;
+                }
+                else
+                {
+                    selectionFlag = 1;
+                }
+                
             }
         }
 
