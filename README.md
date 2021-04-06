@@ -97,6 +97,9 @@ As far as I can tell, this issue is due to some kind of conflict where the root 
 
 - [003-9.9.3]:: NEW branch - MacFunctionalRPG >> Cloned the project on my Mac, and thus created a new branch to differentiate that point in time
 
+4.5.21
+- [004-0.0.4]:: Code Addition >> Added some more control logic for verifying the users input. There is an issue with the double verification that needs to be fixed however.
+
 
 ### Main Branch:
 - Where the core project is located.
