@@ -111,6 +111,7 @@ getline (cin, myString);
 ```
 causes probelsm because the 'cin >>' leaves behind a '\n' character behind in the buffer. The way 'getline' works is by including everything EXCEPT these '\n' characters, meaning that the remaining '\n' character from the previous 'cin' causes a "skip" in the program. The way around this is to include 'cin.ignore();' after EVERY 'cin' so that the ignroe removes one character from the buffer, conveniently the remaining '\n' character that will mess us up later.
 - [005-0.0.5]:: Name Validation >> Successfully broke the name validation out into a separate function that behaves as expected.
+- [006-0.0.6]:: Class Validation >> Added the ability to check if the entered class is correct. Also added a small function to convert the players class integer ID to a string for better output, thus allowing for the numerical value to be used more easily for logic without sacrificing on output to the player."
 
 
 ### Main Branch:
