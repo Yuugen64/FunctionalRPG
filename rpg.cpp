@@ -9,9 +9,6 @@ string getPlayerName()
     
     cout << "Hello! What is your name?" << endl;
     
-    //Necessary for clearing \n characters from '>>' in cin calls
-    //cin.clear();
-    //cin.sync();
     getline (cin, playerName);
 
     return playerName;
@@ -28,6 +25,30 @@ int getPlayerClass()
 
     return playerClassValue;
 }
+
+string convertToClassName(int classValue)
+{
+    string className;
+
+    switch (classValue)
+    {
+        case 1:
+            className = "Warrior";
+            break;
+        case 2:
+            className = "Mage";
+            break;
+        case 3:
+            className = "Assassin";
+            break;
+        default:
+            cout << "ERROR at converToClassName(), provided class number doesn't exist." << endl;
+            cin >> classValue;
+            exit(0);
+    }
+    return className;
+}
+
 
 string validatePlayerName(string playerName)
 {
@@ -59,6 +80,40 @@ string validatePlayerName(string playerName)
     return nameContainer;
 }
 
+int validatePlayerClass(int playerClassValue)
+{
+    int exitCondition = 0;
+    int classFlag = 1;
+    int classContainer = playerClassValue;
+    string className = convertToClassName(classContainer);
+
+    while(exitCondition == 0)
+    {
+        if (classFlag == 1)
+        {
+            cout << "Is the class " << className << " correct?" << endl;
+            cout << "[ 1 - YES | 0 - NO ]" << endl;
+            cin >> classFlag;
+            cin.ignore();
+
+            if(classFlag == 1)
+            {
+                exitCondition = 1;
+            }
+        }
+        else
+        {
+            classContainer = getPlayerClass();
+            className = convertToClassName(classContainer);
+            classFlag = 1;
+        }
+    }
+    cout << "Ok, you've chosen to play " << className << "!" << endl;
+    return classContainer;
+}
+
+
+
 
 int main()
 {
@@ -66,7 +121,7 @@ int main()
     int playerClassValue = getPlayerClass();
 
     playerName = validatePlayerName(playerName);
-    
+    playerClassValue = validatePlayerClass(playerClassValue);    
 
     return 0;
 }
