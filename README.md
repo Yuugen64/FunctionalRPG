@@ -113,6 +113,8 @@ causes probelsm because the 'cin >>' leaves behind a '\n' character behind in th
 - [005-0.0.5]:: Name Validation >> Successfully broke the name validation out into a separate function that behaves as expected.
 - [006-0.0.6]:: Class Validation >> Added the ability to check if the entered class is correct. Also added a small function to convert the players class integer ID to a string for better output, thus allowing for the numerical value to be used more easily for logic without sacrificing on output to the player."
 
+4.7.21
+- [007-0.0.7]:: Code Addition >> Added a small functino for generating stats for the player, with special bonuses based on the class they chose to play.
 
 ### Main Branch:
 - Where the core project is located.
