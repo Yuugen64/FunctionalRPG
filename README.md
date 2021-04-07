@@ -100,6 +100,18 @@ As far as I can tell, this issue is due to some kind of conflict where the root 
 4.5.21
 - [004-0.0.4]:: Code Addition >> Added some more control logic for verifying the users input. There is an issue with the double verification that needs to be fixed however.
 
+4.6.21
+- Learned about how mixing 
+```sh
+cin >> myVariable;
+```
+and
+```sh
+getline (cin, myString);
+```
+causes probelsm because the 'cin >>' leaves behind a '\n' character behind in the buffer. The way 'getline' works is by including everything EXCEPT these '\n' characters, meaning that the remaining '\n' character from the previous 'cin' causes a "skip" in the program. The way around this is to include 'cin.ignore();' after EVERY 'cin' so that the ignroe removes one character from the buffer, conveniently the remaining '\n' character that will mess us up later.
+- [005-0.0.5]:: Name Validation >> Successfully broke the name validation out into a separate function that behaves as expected.
+
 
 ### Main Branch:
 - Where the core project is located.
