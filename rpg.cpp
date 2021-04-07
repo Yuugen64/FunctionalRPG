@@ -8,6 +8,10 @@ string getPlayerName()
     string playerName;
     
     cout << "Hello! What is your name?" << endl;
+    
+    //Necessary for clearing \n characters from '>>' in cin calls
+    //cin.clear();
+    //cin.sync();
     getline (cin, playerName);
 
     return playerName;
@@ -20,8 +24,39 @@ int getPlayerClass()
     cout << "And what class would you like to play? (please enter number)" << endl;
     cout << "[ 1 - Warrior | 2 - Mage | 3 - Assassin ]" << endl;
     cin >> playerClassValue;
+    cin.ignore();
 
     return playerClassValue;
+}
+
+string validatePlayerName(string playerName)
+{
+    int exitCondition = 0;
+    int nameFlag = 1;
+    string nameContainer = playerName;
+
+    while(exitCondition == 0)
+    {
+        if (nameFlag == 1)
+        {
+            cout << "Is the name " << nameContainer << " correct?" << endl;
+            cout << "[ 1 - YES | 0 - NO ]" << endl;
+            cin >> nameFlag;
+            cin.ignore();
+
+            if(nameFlag == 1)
+            {
+                exitCondition = 1;
+            }
+        }
+        else
+        {
+            nameContainer = getPlayerName();
+            nameFlag = 1;
+        }
+    }
+    cout << "Ok " << nameContainer << ", nice to meet you!" << endl;
+    return nameContainer;
 }
 
 
@@ -29,39 +64,9 @@ int main()
 {
     string playerName = getPlayerName();
     int playerClassValue = getPlayerClass();
-    string playerClassName;
-    int infoFlag = 0;
 
-    //Will probably need to have separate flags for this logic process, whiteboard it out.
-    while(infoFlag == 0)
-        {
-            if (infoFlag == 0)
-            {
-                cout << "So " << playerName << ", you've chosen to play a ";
-                switch (playerClassValue)
-                {
-                    case 1:
-                        playerClassName = "Warrior";
-                        cout << playerClassName << endl;
-                        break;
-                    case 2:
-                        playerClassName = "Mage";
-                        cout << playerClassName << endl;
-                        break;
-                    case 3:
-                        playerClassName = "Assassin";
-                        cout << playerClassName << endl;
-                        break;
-                    default:
-                        cout << "There was an error at validating class name." << endl;
-                }
-                cout << endl;
-                cout << "Is this information correct?" << endl;
-                cout << "[ 1 - YES | 0 - NO ]" << endl;
-                cin >> infoFlag;
-            }
-        }
-
+    playerName = validatePlayerName(playerName);
+    
 
     return 0;
 }
