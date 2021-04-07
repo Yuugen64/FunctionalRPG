@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
 using namespace std;
 
 string getPlayerName()
@@ -112,16 +116,65 @@ int validatePlayerClass(int playerClassValue)
     return classContainer;
 }
 
+int generateplayerStats(int playerClassValue)
+{
+    string classContainer;
+    //Initialize the random seed:
+    srand (time(NULL));
 
+    //The actual stat values: Attack, Defense, Speed, Magic Power, Stamina, Mana
+    int playerAttack = rand() % 10 + 1;
+    int playerDefense = rand() % 10 + 1;
+    int playerSpeed = rand() % 10 + 1;
+    int playerMP = rand() % 10 + 1;
+    int playerStamina = rand() % 10 + 1;
+    int playerMana = rand() % 10 + 1;
+
+
+//convert class value to string name for output purposes.
+    classContainer = convertToClassName(playerClassValue);
+    
+
+    switch (playerClassValue)
+    {
+        case 1: //warrior
+            playerDefense += 2;
+            playerStamina += 1;
+            cout << "Your choice to play a " << classContainer << " grants you +2 to Defense, and +1 to Stamina" << endl;
+            break;
+        case 2: //mage
+            playerMP += 2;
+            playerMana += 1;
+            cout << "Your choice to play a " << classContainer << " grants you +2 to Magic Power, and +1 to Mana" << endl;
+            break;
+        case 3: //assassin
+            playerAttack += 2;
+            playerSpeed += 1;
+            cout << "Your choice to play a " << classContainer << " grants you +2 to Attack, and +1 to Speed" << endl;
+            break;
+        default:
+            cout << "ERROR in stat generation." << endl;
+    }
+
+    cout << "Your stats for [ Attack | Defense | Speed | Magic Power | Stamina | Mana ]" << endl;
+    cout << " [ " << playerAttack << " | " << playerDefense << " | " << playerSpeed << " | " << playerMP << " | " << playerStamina << " | " << playerMana << " ] " << endl;
+
+    return 1;
+}
 
 
 int main()
 {
+    //Prompt for player info.
     string playerName = getPlayerName();
     int playerClassValue = getPlayerClass();
 
+    //Validation of player info.
     playerName = validatePlayerName(playerName);
     playerClassValue = validatePlayerClass(playerClassValue);    
+
+    //Generate player stats.
+    int returnedStats = generateplayerStats(playerClassValue);
 
     return 0;
 }
