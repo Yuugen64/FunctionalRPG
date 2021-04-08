@@ -121,6 +121,7 @@ causes probelsm because the 'cin >>' leaves behind a '\n' character behind in th
 - Learned about local scoping and its effects on arrays. There are apparently ways to work around the inability to return arrays from inside functions,
 but they seem to involve pointers, and I am not quite at that point yet. As a result, I declared the array inside main() so I can then manipulate it with
 other various function calls witin main().
+- [009 0.0.9]:: Code Addition >> Added the ability to see a sum of all stat elements in the stats array.
 
 ### Main Branch:
 - Where the core project is located.
