@@ -122,6 +122,7 @@ causes probelsm because the 'cin >>' leaves behind a '\n' character behind in th
 but they seem to involve pointers, and I am not quite at that point yet. As a result, I declared the array inside main() so I can then manipulate it with
 other various function calls witin main().
 - [009 0.0.9]:: Code Addition >> Added the ability to see a sum of all stat elements in the stats array.
+- [010-0.1.0]:: Code Additions >> Added the ability to find the largest stat element in the array, and the smallest stat element in the array.
 
 ### Main Branch:
 - Where the core project is located.
