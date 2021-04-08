@@ -159,6 +159,20 @@ void displayPlayerStats(int playerStats[], int playerClassValue)
     cout << " [ " << playerStats[0] << " | " << playerStats[1] << " | " << playerStats[2] << " | " << playerStats[3] << " | " << playerStats[4] << " | " << playerStats[5] << " ] " << endl;
 }
 
+void sumPlayerStats(int playerStats[])
+{
+    int sum = 0;
+
+    for(int i=0; i<6; i++)
+    {
+        sum+= playerStats[i];
+    }
+
+    cout << "Your current stats TOTAL is " << sum << endl;
+}
+
+
+
 
 int main()
 {
@@ -178,6 +192,8 @@ int main()
     generateplayerStats(playerStats);
 
     displayPlayerStats(playerStats, playerClassValue);
+
+    sumPlayerStats(playerStats);
 
     return 0;
 }
