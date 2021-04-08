@@ -116,6 +116,12 @@ causes probelsm because the 'cin >>' leaves behind a '\n' character behind in th
 4.7.21
 - [007-0.0.7]:: Code Addition >> Added a small functino for generating stats for the player, with special bonuses based on the class they chose to play.
 
+4.8.21
+- [008-0.0.8]:: Code Re-work >> Changed the stat generation, bonus addition, and display to an array-based approach.
+- Learned about local scoping and its effects on arrays. There are apparently ways to work around the inability to return arrays from inside functions,
+but they seem to involve pointers, and I am not quite at that point yet. As a result, I declared the array inside main() so I can then manipulate it with
+other various function calls witin main().
+
 ### Main Branch:
 - Where the core project is located.
 
