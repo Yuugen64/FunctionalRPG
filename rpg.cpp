@@ -171,7 +171,31 @@ void sumPlayerStats(int playerStats[])
     cout << "Your current stats TOTAL is " << sum << endl;
 }
 
+void findLargestStat(int playerStats[])
+{
+    int max = playerStats[0];
 
+    for (int i=0;i<6;i++)
+    {
+        if(max < playerStats[i])
+            max = playerStats[i];
+    }
+
+    cout << "Your best stat is " << max << endl;
+}
+
+void findSmallestStat(int playerStats[])
+{
+    int min = playerStats[0];
+
+    for (int i=0;i<6;i++)
+    {
+        if(min > playerStats[i])
+            min = playerStats[i];
+    }
+
+    cout << "Your best stat is " << min << endl;
+}
 
 
 int main()
@@ -194,6 +218,9 @@ int main()
     displayPlayerStats(playerStats, playerClassValue);
 
     sumPlayerStats(playerStats);
+
+    findLargestStat(playerStats);
+    findSmallestStat(playerStats);
 
     return 0;
 }
