@@ -53,7 +53,6 @@ string convertToClassName(int classValue)
     return className;
 }
 
-
 string validatePlayerName(string playerName)
 {
     int exitCondition = 0;
@@ -171,7 +170,7 @@ void sumPlayerStats(int playerStats[])
     cout << "Your current stats TOTAL is " << sum << endl;
 }
 
-void findLargestStat(int playerStats[])
+int findLargestStat(int playerStats[])
 {
     int max = playerStats[0];
 
@@ -181,10 +180,12 @@ void findLargestStat(int playerStats[])
             max = playerStats[i];
     }
 
-    cout << "Your best stat is " << max << endl;
+    cout << "Your best stat value is " << max << endl;
+
+    return max;
 }
 
-void findSmallestStat(int playerStats[])
+int findSmallestStat(int playerStats[])
 {
     int min = playerStats[0];
 
@@ -194,15 +195,90 @@ void findSmallestStat(int playerStats[])
             min = playerStats[i];
     }
 
-    cout << "Your best stat is " << min << endl;
+    cout << "Your worst stat value is " << min << endl;
+
+    return min;
 }
+
+void statValueLocation(int playerStats[], int statLocationBuffer[], int statValue)
+{
+    //Finding WHERE precisely the stat value is in the stats Array so we can output the stat name.
+    for(int i=0;i<6;i++)
+    {
+        if(playerStats[i]==statValue)
+        {
+            statLocationBuffer[i] = statValue;
+            cout << "Buffer Value at [" << i << "] = " << statValue << endl;
+        }
+    }
+
+}
+
+void statValueFormatting(int statLocationBuffer[], int statValue)
+{
+    int numberOfMatches = 0;
+    
+    //The number of stats that match statValue, for purposes of establishing a counter.
+    for(int i=0; i<6; i++)
+    {
+        if(statLocationBuffer[i] > -1)
+        {
+            numberOfMatches++;
+        }
+    }
+
+    cout << "Number of matching Stats: " << numberOfMatches << endl;
+
+    //Only if we have multiple stats do we inform the user.
+    if(numberOfMatches > 1)
+        cout << "You have multiple stats of this level! " << endl;
+    
+    //The actual switch for outputting which stats by name and their values.
+    for(int i=0; i<6; i++)
+    {
+        if(statLocationBuffer[i] > -1 )
+        {
+            switch(i)
+            {
+                case 0:
+                    cout << "ATTACK: " << statLocationBuffer[i] << endl;
+                    break;
+                case 1:
+                    cout << "DEFENSE: " << statLocationBuffer[i] << endl;
+                    break;
+                case 2:
+                    cout << "SPEED: " << statLocationBuffer[i] << endl;
+                    break;
+                case 3:
+                    cout << "MAGIC POWER: " << statLocationBuffer[i] << endl;
+                    break;
+                case 4:
+                    cout << "STAMINA: " << statLocationBuffer[i] << endl;
+                    break;
+                case 5:
+                    cout << "MANA: " << statLocationBuffer[i] << endl;
+                    break;
+                default:
+                    cout << "An ERROR occured during statValueFormatting()." << endl;
+            }
+        }
+    }
+}
+
+
+
 
 
 int main()
 {
     //Initialize the stats array since scoping won't allow us to create it anywhere else and manipulate it after.
-    //I know pointers can work around this but I haven't reached those yet.
+    //  I know pointers can work around this but I haven't reached those yet.
     int playerStats[] = {0,0,0,0,0,0};
+
+    //This is the more straightforward way of returning locations of matching linear searched stats without getting
+    //  into some typecasting nightmare that has a bunch of scope weirdness. These are initialized to -1 because they
+    //  will hold array indexes, thus anything less than 0 we can throw away.
+    int statLocationBuffer[] = {-1, -1, -1, -1, -1, -1};
 
     //Prompt for player info.
     string playerName = getPlayerName();
@@ -219,8 +295,13 @@ int main()
 
     sumPlayerStats(playerStats);
 
-    findLargestStat(playerStats);
-    findSmallestStat(playerStats);
+    int maxStat = findLargestStat(playerStats);
+    int minStat = findSmallestStat(playerStats);
+
+    statValueLocation(playerStats, statLocationBuffer, maxStat);
+
+    statValueFormatting(statLocationBuffer, maxStat);
+
 
     return 0;
 }
