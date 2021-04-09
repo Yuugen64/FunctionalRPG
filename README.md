@@ -123,6 +123,7 @@ but they seem to involve pointers, and I am not quite at that point yet. As a re
 other various function calls witin main().
 - [009 0.0.9]:: Code Addition >> Added the ability to see a sum of all stat elements in the stats array.
 - [010-0.1.0]:: Code Additions >> Added the ability to find the largest stat element in the array, and the smallest stat element in the array.
+- [011-0.1.1]:: Code Addition >> Added the ability to display WHICH stat had a match for highest or lowerst value.
 
 ### Main Branch:
 - Where the core project is located.
