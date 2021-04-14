@@ -125,6 +125,9 @@ other various function calls witin main().
 - [010-0.1.0]:: Code Additions >> Added the ability to find the largest stat element in the array, and the smallest stat element in the array.
 - [011-0.1.1]:: Code Addition >> Added the ability to display WHICH stat had a match for highest or lowerst value.
 
+4.13.21
+- [012-0.1.2]:: Pseudo-Code >> Due to time constraints today, went back to work out some pseudo-code since I may be returning to this program soon for more learning outcomes.
+
 ### Main Branch:
 - Where the core project is located.
 
