@@ -7,6 +7,11 @@
 
 using namespace std;
 
+
+//======================================================================================
+//  Function Components
+//======================================================================================
+
 string getPlayerName()
 {
     string playerName;
@@ -170,7 +175,7 @@ void sumPlayerStats(int playerStats[])
     cout << "Your current stats TOTAL is " << sum << endl;
 }
 
-int findLargestStat(int playerStats[])
+int findLargestStat(int playerStats[], int statLocationBuffer[])
 {
     int max = playerStats[0];
 
@@ -180,12 +185,11 @@ int findLargestStat(int playerStats[])
             max = playerStats[i];
     }
 
-    cout << "Your best stat value is " << max << endl;
-
+    cout << "Your BEST stat value is " << max << endl;
     return max;
 }
 
-int findSmallestStat(int playerStats[])
+int findSmallestStat(int playerStats[], int statLocationBuffer[])
 {
     int min = playerStats[0];
 
@@ -195,7 +199,7 @@ int findSmallestStat(int playerStats[])
             min = playerStats[i];
     }
 
-    cout << "Your worst stat value is " << min << endl;
+    cout << "Your WORST stat value is " << min << endl;
 
     return min;
 }
@@ -208,7 +212,7 @@ void statValueLocation(int playerStats[], int statLocationBuffer[], int statValu
         if(playerStats[i]==statValue)
         {
             statLocationBuffer[i] = statValue;
-            cout << "Buffer Value at [" << i << "] = " << statValue << endl;
+            //cout << "Buffer Value at [" << i << "] = " << statValue << endl;
         }
     }
 
@@ -227,7 +231,7 @@ void statValueFormatting(int statLocationBuffer[], int statValue)
         }
     }
 
-    cout << "Number of matching Stats: " << numberOfMatches << endl;
+    //cout << "Number of matching Stats: " << numberOfMatches << endl;
 
     //Only if we have multiple stats do we inform the user.
     if(numberOfMatches > 1)
@@ -265,6 +269,37 @@ void statValueFormatting(int statLocationBuffer[], int statValue)
     }
 }
 
+void clearStatLocationBuffer(int statLocationBuffer[])
+{
+    for(int i=0; i<6; i++)
+    {
+        statLocationBuffer[i] = -1;
+    }
+}
+
+
+
+//======================================================================================
+//  Combine Functions - Multiple components combined for cleaner code.
+//======================================================================================
+void outputLargestStats(int playerStats[], int statLocationBuffer[])
+{
+    int maxStat = findLargestStat(playerStats, statLocationBuffer);
+    statValueLocation(playerStats, statLocationBuffer, maxStat);
+    statValueFormatting(statLocationBuffer, maxStat);
+    clearStatLocationBuffer(statLocationBuffer);
+    cout << endl;
+}
+void outputSmallestStats(int playerStats[], int statLocationBuffer[])
+{
+    int minStat = findSmallestStat(playerStats, statLocationBuffer);
+    statValueLocation(playerStats, statLocationBuffer, minStat);
+    statValueFormatting(statLocationBuffer, minStat);
+    clearStatLocationBuffer(statLocationBuffer);
+    cout << endl;
+}
+
+
 
 
 
@@ -295,12 +330,24 @@ int main()
 
     sumPlayerStats(playerStats);
 
-    int maxStat = findLargestStat(playerStats);
-    int minStat = findSmallestStat(playerStats);
+    cout << endl;
 
-    statValueLocation(playerStats, statLocationBuffer, maxStat);
+    outputLargestStats(playerStats, statLocationBuffer);
+    outputSmallestStats(playerStats, statLocationBuffer);
 
-    statValueFormatting(statLocationBuffer, maxStat);
+    //Need to implement a while loop here for the game
+
+    /* 3 steps for game loop 
+    1. Prompt + get input
+    2. Update the game state
+    3. 'Render' the changes (In this case output via text.)
+    */
+
+   //I want to limit the number of things that the while loop is passed, but for the ability to run a help loop or menus
+   // I may need to pass more than I thought.
+    
+    cin >> playerClassValue;
+    cin.ignore();
 
 
     return 0;
