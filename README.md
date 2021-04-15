@@ -128,6 +128,9 @@ other various function calls witin main().
 4.13.21
 - [012-0.1.2]:: Pseudo-Code >> Due to time constraints today, went back to work out some pseudo-code since I may be returning to this program soon for more learning outcomes.
 
+4.14.21
+- [013-0.1.3]:: New Header >> Learned how to create and successfully add my own header to the program. This opens up new possibilities for organizing my code because now I can separate certain functionality that should be repeatable within the main() function out into headers that can be re-used. Will plane through the implications and best way to use this new functionality.
+
 ### Main Branch:
 - Where the core project is located.
 
