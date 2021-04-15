@@ -5,6 +5,8 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
+#include "area.h"       /* My header */
+
 using namespace std;
 
 
@@ -345,6 +347,8 @@ int main()
 
    //I want to limit the number of things that the while loop is passed, but for the ability to run a help loop or menus
    // I may need to pass more than I thought.
+
+    outputHeaderStuff();
     
     cin >> playerClassValue;
     cin.ignore();
