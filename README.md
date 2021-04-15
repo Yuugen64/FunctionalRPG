@@ -131,6 +131,9 @@ other various function calls witin main().
 4.14.21
 - [013-0.1.3]:: New Header >> Learned how to create and successfully add my own header to the program. This opens up new possibilities for organizing my code because now I can separate certain functionality that should be repeatable within the main() function out into headers that can be re-used. Will plane through the implications and best way to use this new functionality.
 
+4.15.21
+- [014-0.1.4]:: REFACTOR IN PROGRESS >> Attempting to move some of the more commonfunctionality to header files. Re-considering how to scope certain parts of the program to allow for re-usable/modular components.
+
 ### Main Branch:
 - Where the core project is located.
 
